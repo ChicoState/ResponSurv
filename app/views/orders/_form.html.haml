@@ -1,0 +1,7 @@
+.row
+  .col-md-6.col-md-offset-3
+    = form_for [@question, @order] do |f|
+      = f.label :orderable
+      = f.number_field :orderable, class: "form-control"
+
+      = f.submit "Submit", class: "btn btn-primary"

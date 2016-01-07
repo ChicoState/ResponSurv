@@ -1,0 +1,6 @@
+= content_tag :div,'', id: "page_type", data: {type: @type}
+.center
+  %h1 Great job! 
+  %h6 Please raise your hand to let us know you are finished.
+
+  = button_to "Logout", logout_path ,method: :delete,class: "btn btn-lg btn-primary"

@@ -1,0 +1,17 @@
+.row
+  .col-md-6.col-md-offset-3
+    = form_for(@finder) do |f|
+      = f.label :question, "Question"
+      = f.text_field :question, class: "form-control"
+      %br
+      = f.check_box :noneEnabled, class: "form-checkbox"
+      = f.label :noneEnabled, "Allow a \"None\" choice"
+      %br
+      = f.check_box :multipleChoice, class: "form-checkbox"
+      = f.label :multipleChoice, "Allow multiple choices"
+      %br
+      = f.check_box :timed, class: "form-checkbox"
+      = f.label :timed, "Make this question timed"
+      %br
+      = f.collection_check_boxes :item_ids, @items, :id, :image_file_name, class: "form-control"
+      = f.submit "Submit",  class: "btn btn-primary"

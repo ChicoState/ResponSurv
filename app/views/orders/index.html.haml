@@ -1,0 +1,16 @@
+- @finders.each do |finder|
+  - if finder.order
+    = link_to finder.question, edit_finder_order_path(finder,finder.order)
+    = finder.order.orderable
+  - else
+    = link_to finder.question, new_finder_order_path(finder)
+    no order
+  %br
+- @questions.each do |question|
+  - if question.order
+    = link_to question.prompt, edit_mc_question_order_path(question,question.order)
+    = question.order.orderable
+  - else
+    = link_to question.question, new_mc_question_order_path(question)
+    no order
+  %br

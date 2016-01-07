@@ -1,0 +1,8 @@
+%h1 Add Image
+.row
+  .col-md-6.col-md-offset-3
+    = form_for @item, html: { multipart: true } do |f|
+      = f.label :image
+      = f.file_field :image, multiple: true, class: "form-control"
+
+      = f.submit "Submit",  class: "btn btn-primary"
