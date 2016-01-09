@@ -13,6 +13,9 @@ rerun.txt
 pickle-email-*.html
 .DS_Store
 .env
+*~
+*.swp
+*.swo
 
 ## Environment normalisation:
 /.bundle
