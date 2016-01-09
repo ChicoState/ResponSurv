@@ -5,7 +5,7 @@
 (($) ->
 ) jQuery
 
-ready = -> 
+ready = ->
   switch $('#page_type').data('type')
     when 'pictures' then pictures()
     when 'finder' then finder()
@@ -30,11 +30,11 @@ followup = ->
       document.getElementById('h3').style.visibility = 'visible'
       document.getElementById('radio-wrapper').style.visibility = 'visible'
       return
-    $('#timer').pietimer 'start' 
+    $('#timer').pietimer 'start'
 
   $(document).on "change", ".radio", ->
     toggle_next_button()
-    
+
 pictures = ->
   start_of_selections()
 
@@ -78,7 +78,7 @@ finder = ->
   add_next_button()
 
 #remove the none button
-remove_none_button = -> 
+remove_none_button = ->
   $('#none').remove()
   return
 
