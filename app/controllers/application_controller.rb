@@ -17,6 +17,6 @@ class ApplicationController < ActionController::Base
   private
 
   def participant_token
-    session[:user_token] ||= SecureRandom.uuid
+    session[:participant_token] ||= SecureRandom.uuid
   end
 end
