@@ -8,7 +8,6 @@
 ready = ->
   switch $('#page_type').data('type')
     when 'pictures' then pictures()
-    when 'finder' then finder()
     when 'followup' then followup()
     when 'welcome' then welcome()
     else null
@@ -38,21 +37,10 @@ followup = ->
 pictures = ->
   start_of_selections()
 
-  if !$('#finder_options').data('noneenabled')
-    remove_none_button()
-  else
-    add_none_button()
+  add_none_button()
 
   add_next_button()
   toggle_next_button()
-
-  ###   start pietime   ###
-  if $('#finder_options').data('timed')
-    $('#timer').pietimer {
-      seconds: 20,
-      color: 'rgba(200, 200, 200, 0.8)'
-    },done
-    $('#timer').pietimer('start')
 
   ###   make a selection   ###
 

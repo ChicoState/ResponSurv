@@ -18,27 +18,11 @@ module StaticPagesHelper
           render_pictures
         else
           set_render_items true
-          render_finder
         end
       elsif @next.class == McQuestion
         render_followup
       end
     end
-  end
-
-  def render_finder
-    @finder = @next
-    set_cur_question(@finder.id)
-    @type = :finder
-    render 'static_pages/questions'
-  end
-
-  def render_pictures
-    @finder = @next
-    @images = cur_question.items
-    set_image_array @images # SessionHelper
-    @type = :pictures
-    render 'static_pages/pictures'
   end
 
   def render_followup

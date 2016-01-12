@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   post 'SelectionDone'     =>  'selection#done'
   post 'SelectionStart'    =>  'selection#start_of_question'
   post 'SelectionEnd'      =>  'selection#end_of_question'
-
-  resources :items
   resources :finders do
     resources :orders, only: [:new, :create, :edit, :update]
   end

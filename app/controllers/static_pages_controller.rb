@@ -1,17 +1,8 @@
 class StaticPagesController < ApplicationController
-  include SelectionHelper
   include StaticPagesHelper
   def questions
     @finder = render_question
     set_cur_question(@finder.id) #SessionHelper
-  end
-
-  def pictures
-    @finder = Finder.find(4)
-    @images = @finder.items
-    @images = @images[0..19].shuffle
-    @type = :pictures
-    set_image_array @images #SessionHelper
   end
 
   def followup

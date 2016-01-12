@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
   def index
-    @finders = Finder.all
     @questions = McQuestion.all
   end
 
@@ -23,7 +22,6 @@ class OrdersController < ApplicationController
 
   def edit
     @order = Order.find(params[:id])
-    @finders = Finder.all
     @questions = McQuestion.all
   end
 
@@ -44,11 +42,7 @@ class OrdersController < ApplicationController
   end
 
   def finder_or_mc_question
-    if params[:finder_id]
-      Finder.find(params[:finder_id])
-    else
-      McQuestion.find(params[:mc_question_id])
-    end
+    McQuestion.find(params[:mc_question_id])
   end
 
   def set_foreign_id(order)
