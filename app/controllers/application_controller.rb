@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    super || Participant.find_safely(participant_token)
+    super || Participant.find_safely(request, participant_token)
   end
 
   private
