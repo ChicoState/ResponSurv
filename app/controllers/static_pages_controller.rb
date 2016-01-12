@@ -34,10 +34,8 @@ class StaticPagesController < ApplicationController
 
   def next_question
     if !render_items #render_question the same for pair of question/pictures
-      puts "In render_items"
       current_user.update_current_question
     end
-    puts "after render_items"
     render :js => "window.location = '#{root_path}'"
   end
 end
