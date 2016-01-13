@@ -1,7 +1,0 @@
-$("#main").html("Created!");
-
-$("#main").html("<%= escape_javascript(render @question) %>");
-
-<% next_button = button_to 'Next', user_questions_path(current_user), remote: true, class: "btn btn-lg btn-primary center-block", params: { :"question[type]" => "Question", :"question[section_id]" => "1", :"question[sequence_id]" => @question.sequence_id + 1 } %>
-
-$("<%= escape_javascript(next_button) %>").appendTo("#main");

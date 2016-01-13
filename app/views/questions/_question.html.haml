@@ -7,3 +7,5 @@
 %p
   %b Sequence:
   = @question.sequence_id
+
+= button_to 'Next', user_question_responses_path(current_user, @question), remote: true, class: "btn btn-lg btn-primary center-block", params: { :"response[type]" => "Response" }

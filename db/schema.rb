@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113003734) do
+ActiveRecord::Schema.define(version: 20160113202539) do
 
   create_table "environments", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -23,15 +23,24 @@ ActiveRecord::Schema.define(version: 20160113003734) do
   add_index "environments", ["user_id"], name: "index_environments_on_user_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
-    t.string   "type",        limit: 255,             null: false
-    t.integer  "section_id",  limit: 4,   default: 1, null: false
-    t.integer  "sequence_id", limit: 4,   default: 1, null: false
+    t.string   "type",        limit: 255, null: false
+    t.integer  "section_id",  limit: 4,   null: false
+    t.integer  "sequence_id", limit: 4,   null: false
     t.integer  "user_id",     limit: 4
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
+
+  create_table "responses", force: :cascade do |t|
+    t.string   "type",        limit: 255
+    t.integer  "question_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "responses", ["question_id"], name: "index_responses_on_question_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "password_digest",        limit: 255
@@ -58,4 +67,5 @@ ActiveRecord::Schema.define(version: 20160113003734) do
 
   add_foreign_key "environments", "users"
   add_foreign_key "questions", "users"
+  add_foreign_key "responses", "questions"
 end

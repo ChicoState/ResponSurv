@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
-    resources :questions, shallow: true
+    resources :questions do
+      resources :responses, shallow: true
+    end
   end
 
   root 'static_pages#survey'

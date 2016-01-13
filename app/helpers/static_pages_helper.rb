@@ -5,7 +5,10 @@ module StaticPagesHelper
 
   def next_view
     if current_user.current_question == 0 # 0 order render welcome
-      @question = Question.new
+      @question = current_user.questions.new
+      @question.type = "Question"
+      @question.section_id = 1
+      @question.save
       render template: 'static_pages/welcome'
     else # >0 order render finder or mc_question
       @next = render_question
