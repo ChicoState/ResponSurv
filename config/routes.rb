@@ -1,30 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  get 'static_pages/survey'
-
   # root                            'sessions#new'
   root 'static_pages#survey'
-
-  get 'pictures'          =>  'static_pages#pictures'
-  get 'questions'         =>  'static_pages#questions'
-  get 'followup' =>   'static_pages#followup'
-
-  post 'NextQuestion'      =>  'static_pages#next_question'
-  post 'SelectionCreate'   =>  'selection#create'
-  post 'SelectionDone'     =>  'selection#done'
-  post 'SelectionStart'    =>  'selection#start_of_question'
-  post 'SelectionEnd'      =>  'selection#end_of_question'
-  resources :finders do
-    resources :orders, only: [:new, :create, :edit, :update]
-  end
-
-  resources :mc_questions do
-    resources :orders, only: [:new, :create, :edit, :update]
-  end
-  resources :mc_choices
-  resources :mc_responses
-  resources :orders, only: [:index]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
