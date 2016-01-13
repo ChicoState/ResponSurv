@@ -2,4 +2,4 @@
 %p.text-left Thank you for agreeing to participate in our survey. This survey is being used for a graduate research study at CSU, Chico in partnership with the Center for Healthy Communities. The results from this study will help us learn about food and beverage consumption, specifically  foods that people over-consume. These foods usually have higher amounts of fat and sugar and can lead to overeating and can be referred to as problematic or trigger foods.
 %p.text-left Participation in this survey is voluntary and anonymous. If at any point you do not want to continue the survey, you may stop. There is absolutely no risk in participating in this study.
 
-= button_tag "Begin", id: "next_button", class: "btn btn-lg btn-primary center-block"
+= button_to 'Start', user_questions_path(current_user), remote: true, class: "btn btn-lg btn-primary center-block", params: { :"question[type]" => "Question", :"question[section_id]" => "1", :"question[sequence_id]" => "1" }

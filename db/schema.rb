@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112001032) do
+ActiveRecord::Schema.define(version: 20160113003734) do
 
   create_table "environments", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -21,6 +21,17 @@ ActiveRecord::Schema.define(version: 20160112001032) do
   end
 
   add_index "environments", ["user_id"], name: "index_environments_on_user_id", using: :btree
+
+  create_table "questions", force: :cascade do |t|
+    t.string   "type",        limit: 255,             null: false
+    t.integer  "section_id",  limit: 4,   default: 1, null: false
+    t.integer  "sequence_id", limit: 4,   default: 1, null: false
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "questions", ["user_id"], name: "index_questions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "password_digest",        limit: 255
@@ -46,4 +57,5 @@ ActiveRecord::Schema.define(version: 20160112001032) do
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
   add_foreign_key "environments", "users"
+  add_foreign_key "questions", "users"
 end

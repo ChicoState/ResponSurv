@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  # root                            'sessions#new'
+  resources :users do
+    resources :questions, shallow: true
+  end
+
   root 'static_pages#survey'
 
   # The priority is based upon order of creation: first created -> highest priority.

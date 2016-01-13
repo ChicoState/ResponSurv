@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :environment
+  has_many :questions
 
   def update_current_question
     update(current_question: current_question + 1)
